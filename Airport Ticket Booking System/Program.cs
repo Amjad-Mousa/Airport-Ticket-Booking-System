@@ -1,6 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿namespace Airport_Ticket_Booking_System;
 
-Console.WriteLine("Hello, World!");
-Console.WriteLine("Press any key to exit...");
-Console.ReadKey();
-Console.Clear();
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Hello World!");
+    }
+}
+
