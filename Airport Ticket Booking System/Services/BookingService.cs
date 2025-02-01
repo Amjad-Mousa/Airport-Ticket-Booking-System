@@ -7,9 +7,9 @@ namespace Airport_Ticket_Booking_System.Services;
 
 public enum FlightClass
 {
-    Economy = 100,
-    Business = 120,
-    FirstClass = 150
+    Economy = 10,
+    Business = 50,
+    FirstClass = 100
 }
 
 public class BookingService
@@ -26,23 +26,21 @@ public class BookingService
             return false;
         }
 
-        booking.Class = newClass.ToString();
-        booking.TotalPrice = CalculatePriceWithClass(booking, newClass);
+        booking.BookingClass = newClass;
+        BookingService.CalculatePriceWithClass(booking, newClass);
         return true;
     }
 
 
-    public decimal CalculatePriceWithClass(Booking booking, FlightClass newClass)
+    public  static void CalculatePriceWithClass(Booking booking, FlightClass newClass)
     {
-        return (decimal)newClass;
+        booking.TotalPrice=(booking.TotalPrice-(decimal)booking.BookingClass)+ (decimal)newClass;
     }
 
     public Booking? GetBookingById(BookingDto bookingDto)
     {
-        var booking = CsvHelperService.ReadFromCsv<Booking>("Booking.csv")
+        return CsvHelperService.ReadFromCsv<Booking>("Booking.csv")
             .FirstOrDefault(b => b.BookingId == bookingDto.Id);
-
-        return booking;
     }
 
 
@@ -85,4 +83,5 @@ public class BookingService
 
         return passenger != null;
     }
+
 }
