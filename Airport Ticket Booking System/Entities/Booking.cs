@@ -22,6 +22,10 @@ namespace Airport_Ticket_Booking_System.Entities
             TotalPrice = FlightService.GetFlightById(flightId)!.Price + (decimal)bookingClass;
         }
 
-      
+        public override string ToString()
+        {
+            return
+                $"FlightId:{this.FlightId}, FlightID:{this.FlightId}, PassengerId:{this.PassengerId}, BookingDate:{this.BookingDate} ";
+        }
     }
 }
