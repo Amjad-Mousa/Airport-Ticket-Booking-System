@@ -11,6 +11,7 @@ namespace Airport_Ticket_Booking_System.Entities
         public DateTime BookingDate { get; set; }
         public decimal TotalPrice { get; set; }
         public int BookingId { get; }
+        public object Status { get; set; }
 
         public Booking(string flightId, int passengerId, FlightClass bookingClass)
         {
@@ -19,11 +20,21 @@ namespace Airport_Ticket_Booking_System.Entities
             BookingDate = DateTime.Now;
             BookingId = _bookingId++;
             BookingClass = bookingClass;
-            
-            TotalPrice = FlightService.GetFlightById(flightId)!.Price + (decimal)bookingClass;
+    
+            var flight = FlightService.GetFlightById(flightId);
+            if (flight != null)
+            {
+                TotalPrice = flight.Price + (decimal)bookingClass;
+            }
+            else
+            {
+                TotalPrice = 0;
+            }
+
             BookingDto bookingDto = new BookingDto();
             bookingDto.ToDTO(this);
         }
+
 
         public override string ToString()
         {

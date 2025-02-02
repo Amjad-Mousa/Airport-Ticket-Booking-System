@@ -19,28 +19,38 @@ public class BookingService
         return CsvHelperService.DeleteFromCsv<Booking>("Booking.csv", b => b.BookingId == bookingDto.Id);
     }
 
-    public bool ModifyBooking(Booking booking, FlightClass newClass)
+    public static string UpdateBooking(Booking updatedBooking)
     {
-        if (!IsPassengerExists(booking.PassengerId))
+        var booking = GetBookingById(updatedBooking.BookingId);
+
+        if (booking == null)
+            return "Booking not found.";
+
+        booking.FlightId = updatedBooking.FlightId ?? booking.FlightId;
+        booking.BookingClass =
+            updatedBooking.BookingClass != default ? updatedBooking.BookingClass : booking.BookingClass;
+        booking.Status = updatedBooking.Status ?? booking.Status;
+
+        if (updatedBooking.BookingClass != default)
         {
-            return false;
+            BookingService.CalculatePriceWithClass(booking, updatedBooking.BookingClass);
         }
 
-        booking.BookingClass = newClass;
-        BookingService.CalculatePriceWithClass(booking, newClass);
-        return true;
+        CsvHelperService.AddToCsv("Bookings.csv", booking);
+
+        return "Booking updated successfully.";
     }
 
 
-    public  static void CalculatePriceWithClass(Booking booking, FlightClass newClass)
+    public static void CalculatePriceWithClass(Booking booking, FlightClass newClass)
     {
-        booking.TotalPrice=(booking.TotalPrice-(decimal)booking.BookingClass)+ (decimal)newClass;
+        booking.TotalPrice = (booking.TotalPrice - (decimal)booking.BookingClass) + (decimal)newClass;
     }
 
-    public Booking? GetBookingById(BookingDto bookingDto)
+    public static Booking? GetBookingById(int bookingId)
     {
         return CsvHelperService.ReadFromCsv<Booking>("Booking.csv")
-            .FirstOrDefault(b => b.BookingId == bookingDto.Id);
+            .FirstOrDefault(b => b.BookingId == bookingId);
     }
 
 
@@ -63,7 +73,6 @@ public class BookingService
         return new List<Booking>();
     }
 
-   
 
     private List<Booking> FillterByPassengerId(BookingDto bookingDto)
     {
@@ -85,5 +94,4 @@ public class BookingService
 
         return passenger != null;
     }
-
 }
