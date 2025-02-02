@@ -12,7 +12,7 @@ public class FlightService
 {
     public static Flight? GetFlightById(string id)
     {
-        return CsvHelperService.ReadFromCsv<Flight>("Flight.csv")
+        return CsvHelperService.ReadFromCsv<Flight>("jetbrains://rd/navigate/reference?project=Airport%20Ticket%20Booking%20System&path=Airport%20Ticket%20Booking%20System%2FData%2FFlight.csv")
             .FirstOrDefault(f => f.Id == id);
     }
 
@@ -38,7 +38,7 @@ public class FlightService
         flight.DestinationAirport = updatedFlight.DestinationAirport ?? flight.DestinationAirport;
         flight.Class = updatedFlight.Class ?? flight.Class;
 
-        CsvHelperService.AddToCsv("Flight.csv", flight);
+        CsvHelperService.AddToCsv("jetbrains://rd/navigate/reference?project=Airport%20Ticket%20Booking%20System&path=Airport%20Ticket%20Booking%20System%2FData%2FFlight.csv", flight);
 
         return "Flight updated successfully.";
     }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Airport Ticket Booking System")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+337852686e64f414bf284d1680f06a96bf7adc22")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bbd84df7e8634b38f25bd26f5ad0800b2d9c326b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Airport Ticket Booking System")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Airport Ticket Booking System")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
