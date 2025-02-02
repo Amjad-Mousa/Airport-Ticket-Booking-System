@@ -1,3 +1,4 @@
+using Airport_Ticket_Booking_System.DTOs;
 using Airport_Ticket_Booking_System.Services;
 namespace Airport_Ticket_Booking_System.Entities
 {
@@ -20,6 +21,8 @@ namespace Airport_Ticket_Booking_System.Entities
             BookingClass = bookingClass;
             
             TotalPrice = FlightService.GetFlightById(flightId)!.Price + (decimal)bookingClass;
+            BookingDto bookingDto = new BookingDto();
+            bookingDto.ToDTO(this);
         }
 
         public override string ToString()
