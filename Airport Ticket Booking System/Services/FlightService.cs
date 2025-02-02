@@ -43,8 +43,9 @@ public class FlightService
         return "Flight updated successfully.";
     }
 
-    public string CheckSeatAvailability(Flight flight, int seatNumber)
+    public string CheckSeatAvailability(string flightId, int seatNumber)
     {
+        var flight = GetFlightById(flightId);
         if (flight.SeatAvailability.TryGetValue(seatNumber, out var value))
         {
             return value == "Available" ? "Seat is available." : "Seat is booked.";
@@ -55,9 +56,10 @@ public class FlightService
         }
     }
 
-    public string ReserveSeat(Flight flight, int seatNumber)
+    public string ReserveSeat( string flightId, int seatNumber)
     {
-        var seatStatus = CheckSeatAvailability(flight, seatNumber);
+        var flight = GetFlightById(flightId);
+        var seatStatus = CheckSeatAvailability(flightId, seatNumber);
 
         if (seatStatus == "Seat is available.")
         {
@@ -68,9 +70,10 @@ public class FlightService
         return seatStatus;
     }
 
-    public string CancelSeatReservation(Flight flight, int seatNumber)
+    public string CancelSeatReservation(string flightId, int seatNumber)
     {
-        var seatStatus = CheckSeatAvailability(flight, seatNumber);
+        var flight = GetFlightById(flightId);
+        var seatStatus = CheckSeatAvailability(flight.Id, seatNumber);
 
         if (seatStatus == "Seat is booked.")
         {

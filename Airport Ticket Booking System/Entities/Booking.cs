@@ -13,6 +13,7 @@ namespace Airport_Ticket_Booking_System.Entities
         public int BookingId { get; }
         public object Status { get; set; }
 
+     
         public Booking(string flightId, int passengerId, FlightClass bookingClass)
         {
             FlightId = flightId;

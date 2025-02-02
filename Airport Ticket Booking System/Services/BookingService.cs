@@ -19,6 +19,11 @@ public class BookingService
         return CsvHelperService.DeleteFromCsv<Booking>("Booking.csv", b => b.BookingId == bookingDto.Id);
     }
 
+    public void AddBooking(Booking booking)
+    {
+        CsvHelperService.AddToCsv("Booking.csv", booking);
+    }
+    
     public static string UpdateBooking(Booking updatedBooking)
     {
         var booking = GetBookingById(updatedBooking.BookingId);
