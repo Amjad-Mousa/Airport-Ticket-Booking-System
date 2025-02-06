@@ -1,0 +1,18 @@
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/bin/Debug/net9.0/Airport Ticket Booking System
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/bin/Debug/net9.0/Airport Ticket Booking System.deps.json
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/bin/Debug/net9.0/Airport Ticket Booking System.runtimeconfig.json
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/bin/Debug/net9.0/Airport Ticket Booking System.dll
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/bin/Debug/net9.0/Airport Ticket Booking System.pdb
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/bin/Debug/net9.0/CsvHelper.dll
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/Airport Ticket Booking System.csproj.AssemblyReference.cache
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/Airport Ticket Booking System.GeneratedMSBuildEditorConfig.editorconfig
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/Airport Ticket Booking System.AssemblyInfoInputs.cache
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/Airport Ticket Booking System.AssemblyInfo.cs
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/Airport Ticket Booking System.csproj.CoreCompileInputs.cache
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/Airport Ticket Booking System.sourcelink.json
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/Airport .188F3DDC.Up2Date
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/Airport Ticket Booking System.dll
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/refint/Airport Ticket Booking System.dll
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/Airport Ticket Booking System.pdb
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/Airport Ticket Booking System.genruntimeconfig.cache
+/home/amjad/RiderProjects/Airport Ticket Booking System/Airport Ticket Booking System/obj/Debug/net9.0/ref/Airport Ticket Booking System.dll

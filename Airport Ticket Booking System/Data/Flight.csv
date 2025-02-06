@@ -1,0 +1,5 @@
+FlightId,Airline,Origin,Destination,DepartureTime,ArrivalTime,TotalSeats,AvailableSeats
+FL123,Airline A,Nablus,Amman,2025-02-10 14:00:00,2025-02-10 16:00:00,150,120
+FL124,Airline B,Nablus,Cairo,2025-02-10 15:00:00,2025-02-10 17:00:00,180,150
+FL125,Airline C,Nablus,Dubai,2025-02-12 08:00:00,2025-02-12 11:00:00,200,180
+FL126,Airline D,Nablus,Beirut,2025-02-12 10:00:00,2025-02-12 12:00:00,160,140

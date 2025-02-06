@@ -1,0 +1,8 @@
+BookingId,FlightId,PassengerId,FlightClass
+1,FL123,1,Economy
+2,FL124,2,Business
+3,FL125,3,FirstClass
+4,FL126,4,Economy
+5,FL123,5,Business
+5,FL126,8,Business
+

@@ -7,9 +7,9 @@ namespace Airport_Ticket_Booking_System.Services;
 
 public enum FlightClass
 {
-    Economy = 100,
-    Business = 120,
-    FirstClass = 150
+    Economy = 10,
+    Business = 50,
+    FirstClass = 100
 }
 
 public class BookingService
@@ -19,30 +19,43 @@ public class BookingService
         return CsvHelperService.DeleteFromCsv<Booking>("Booking.csv", b => b.BookingId == bookingDto.Id);
     }
 
-    public bool ModifyBooking(Booking booking, FlightClass newClass)
+    public void AddBooking(Booking booking)
     {
-        if (!IsPassengerExists(booking.PassengerId))
+        CsvHelperService.AddToCsv("Booking.csv", booking);
+    }
+    
+    public static string UpdateBooking(Booking updatedBooking)
+    {
+        var booking = GetBookingById(updatedBooking.BookingId);
+
+        if (booking == null)
+            return "Booking not found.";
+
+        booking.FlightId = updatedBooking.FlightId ?? booking.FlightId;
+        booking.BookingClass =
+            updatedBooking.BookingClass != default ? updatedBooking.BookingClass : booking.BookingClass;
+        booking.Status = updatedBooking.Status ?? booking.Status;
+
+        if (updatedBooking.BookingClass != default)
         {
-            return false;
+            BookingService.CalculatePriceWithClass(booking, updatedBooking.BookingClass);
         }
 
-        booking.Class = newClass.ToString();
-        booking.TotalPrice = CalculatePriceWithClass(booking, newClass);
-        return true;
+        CsvHelperService.AddToCsv("Bookings.csv", booking);
+
+        return "Booking updated successfully.";
     }
 
 
-    public decimal CalculatePriceWithClass(Booking booking, FlightClass newClass)
+    public static void CalculatePriceWithClass(Booking booking, FlightClass newClass)
     {
-        return (decimal)newClass;
+        booking.TotalPrice = (booking.TotalPrice - (decimal)booking.BookingClass) + (decimal)newClass;
     }
 
-    public Booking? GetBookingById(BookingDto bookingDto)
+    public static Booking? GetBookingById(int bookingId)
     {
-        var booking = CsvHelperService.ReadFromCsv<Booking>("Booking.csv")
-            .FirstOrDefault(b => b.BookingId == bookingDto.Id);
-
-        return booking;
+        return CsvHelperService.ReadFromCsv<Booking>("Booking.csv")
+            .FirstOrDefault(b => b.BookingId == bookingId);
     }
 
 
@@ -64,6 +77,7 @@ public class BookingService
             return FillterByPassengerId(bookingDto);
         return new List<Booking>();
     }
+
 
     private List<Booking> FillterByPassengerId(BookingDto bookingDto)
     {
